@@ -1,4 +1,4 @@
-# Перепроверяем доступность обновлений перед загрузкой
+
 $UpdatesToDownload = New-Object -ComObject Microsoft.Update.UpdateColl
 foreach ($Update in $SearchResult.Updates) {
     if (!$Update.IsDownloaded) { # Добавляем только не загруженные обновления
@@ -6,7 +6,7 @@ foreach ($Update in $SearchResult.Updates) {
     }
 }
 
-# Проверка наличия обновлений для загрузки
+
 if ($UpdatesToDownload.Count -gt 0) {
     $Downloader = $UpdateSession.CreateUpdateDownloader()
     $Downloader.Updates = $UpdatesToDownload
